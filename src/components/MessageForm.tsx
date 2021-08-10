@@ -10,6 +10,8 @@ const messageForm = (): JSX.Element => {
   const [message, setMessage] = useState("");
 
   const clickHandler = () => {
+    if(message.length === 0) return;
+    
     socket.send(message);
     setMessage("");
   };
