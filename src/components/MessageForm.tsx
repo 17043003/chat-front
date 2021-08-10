@@ -4,8 +4,15 @@ import IconButton from "@material-ui/core/IconButton";
 
 import { useState } from "react";
 
+import socket from "./WebSocket";
+
 const messageForm = (): JSX.Element => {
   const [message, setMessage] = useState("");
+
+  const clickHandler = () => {
+    socket.send(message);
+    setMessage("");
+  };
 
   return (
     <>
@@ -13,7 +20,7 @@ const messageForm = (): JSX.Element => {
       <IconButton
         color="primary"
         component="span"
-        onClick={() => console.log(message)}
+        onClick={() => clickHandler()}
       >
         <SendIcon />
       </IconButton>
