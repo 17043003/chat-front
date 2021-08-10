@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
 import webSocket from "./components/WebSocket";
+import MessageForm from "./components/MessageForm";
 
 function App(): JSX.Element {
   const [messages, setMessages] = useState<string[]>([]);
@@ -34,6 +35,9 @@ function App(): JSX.Element {
       ) : (
         <p>{"メッセージはありません"}</p>
       )}
+      <form noValidate autoComplete="off">
+        <MessageForm />
+      </form>
     </div>
   );
 }
